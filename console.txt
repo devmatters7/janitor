@@ -1,0 +1,608 @@
+[0;34m[INFO][0m Starting deployment to production environment with profile: production
+[0;34m[INFO][0m Checking prerequisites...
+[0;32m[SUCCESS][0m Prerequisites check passed
+[0;34m[INFO][0m Building application...
+[0;34m[INFO][0m Cleaning previous builds...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< com.maintenance:building-maintenance-system >-------------
+[INFO] Building Building Maintenance System 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ building-maintenance-system ---
+[INFO] Deleting /OKComputer_Dockerized Spring Boot Ticket System/target
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.428 s
+[INFO] Finished at: 2025-10-27T14:15:59+01:00
+[INFO] ------------------------------------------------------------------------
+[0;34m[INFO][0m Running: mvn clean package -DskipTests -Pproduction
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< com.maintenance:building-maintenance-system >-------------
+[INFO] Building Building Maintenance System 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ building-maintenance-system ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ building-maintenance-system ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- vaadin:24.3.0:prepare-frontend (default) @ building-maintenance-system ---
+[INFO] Reflections took 1084 ms to scan 171 urls, producing 9620 keys and 49071 values
+[INFO] Copying frontend resources from jar files ...
+[INFO] Visited 170 resources. Took 128 ms.
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ building-maintenance-system ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 55 source files with javac [debug release 17] to target/classes
+[INFO] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java: /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java verwendet oder überschreibt eine veraltete API.
+[INFO] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java: Wiederholen Sie die Kompilierung mit -Xlint:deprecation, um Details zu erhalten.
+[INFO] Einige Meldungen wurden vereinfacht. Wiederholen Sie die Kompilierung mit -Xdiags:verbose, um die vollständige Ausgabe abzurufen
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Ticket.java:[79,27] Variable actualCompletion ist bereits in Klasse com.maintenance.entity.Ticket definiert
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/repository/TicketStatusHistoryRepository.java:[38,5] Symbol nicht gefunden
+  Symbol: Klasse Optional
+  Ort: Schnittstelle com.maintenance.repository.TicketStatusHistoryRepository
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/repository/TicketStatusHistoryRepository.java:[41,31] Methode findByTicketOrderByCreatedAtDesc(com.maintenance.entity.Ticket) ist bereits in Schnittstelle com.maintenance.repository.TicketStatusHistoryRepository definiert
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Ticket.java:[141,28] Symbol nicht gefunden
+  Symbol: Methode getName()
+  Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Building.java:[98,41] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Building.java:[98,98] Symbol nicht gefunden
+  Symbol: Variable COLOSED
+  Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[77,49] Symbol nicht gefunden
+  Symbol: Methode getName()
+  Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[82,41] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[82,98] Symbol nicht gefunden
+  Symbol: Variable COLOSED
+  Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/TicketCategory.java:[67,41] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/TicketCategory.java:[67,98] Symbol nicht gefunden
+  Symbol: Variable COLOSED
+  Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[31,32] Symbol nicht gefunden
+  Symbol: Methode getIsActive()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[27,44] Symbol nicht gefunden
+  Symbol: Methode getRole()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[25,35] Symbol nicht gefunden
+  Symbol: Methode getUsername()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[26,31] Symbol nicht gefunden
+  Symbol: Methode getPassword()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtAuthenticationEntryPoint.java:[26,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtAuthenticationEntryPoint
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtAuthenticationFilter.java:[47,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtAuthenticationFilter
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[39,29] Symbol nicht gefunden
+  Symbol: Methode parserBuilder()
+  Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[49,29] Symbol nicht gefunden
+  Symbol: Methode parserBuilder()
+  Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[60,17] Symbol nicht gefunden
+  Symbol: Methode parserBuilder()
+  Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[66,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[68,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[70,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[72,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[74,13] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[31,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[31,53] Symbol nicht gefunden
+  Symbol: Methode getName()
+  Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[38,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[43,41] Symbol nicht gefunden
+  Symbol: Methode getName()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[44,44] Symbol nicht gefunden
+  Symbol: Methode getAddress()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[45,41] Symbol nicht gefunden
+  Symbol: Methode getCity()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[46,42] Symbol nicht gefunden
+  Symbol: Methode getState()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[47,44] Symbol nicht gefunden
+  Symbol: Methode getZipCode()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[48,44] Symbol nicht gefunden
+  Symbol: Methode getManager()
+  Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[56,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[23,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[36,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[49,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[71,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[84,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[97,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[110,9] Symbol nicht gefunden
+  Symbol: Variable log
+  Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[58,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[75,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[99,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[123,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[149,48] Nicht vergleichbare Typen: com.vaadin.flow.component.charts.model.ChartType und com.maintenance.ui.components.TicketChart.ChartType
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[54,47] Symbol nicht gefunden
+  Symbol: Methode getRole()
+  Ort: Variable currentUser von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[56,54] Symbol nicht gefunden
+  Symbol: Methode getRole()
+  Ort: Variable currentUser von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[117,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[127,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[137,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[147,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[167,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[177,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[187,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[197,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[218,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[228,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[238,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[248,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[286,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getTitle()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[287,40] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[288,40] Symbol nicht gefunden
+  Symbol: Methode getPriority()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[292,48] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[293,55] Symbol nicht gefunden
+  Symbol: Methode getStatus()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[317,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getTitle()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[318,40] Symbol nicht gefunden
+  Symbol: Methode getAssignee()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[319,23] Symbol nicht gefunden
+  Symbol: Methode getAssignee()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[320,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getEstimatedCompletion()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[341,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getTitle()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[342,40] Symbol nicht gefunden
+  Symbol: Methode getCategory()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[343,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getPriority()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[344,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getStatus()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[345,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getEstimatedCompletion()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[369,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getTitle()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[370,40] Symbol nicht gefunden
+  Symbol: Methode getCategory()
+  Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[371,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getPriority()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[372,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getStatus()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[373,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getCreatedAt()
+    Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[397,9] Symbol nicht gefunden
+  Symbol: Klasse Button
+  Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[397,38] Symbol nicht gefunden
+  Symbol: Klasse Button
+  Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[401,42] Symbol nicht gefunden
+  Symbol: Variable ButtonVariant
+  Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[404,9] Symbol nicht gefunden
+  Symbol: Klasse Button
+  Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[404,33] Symbol nicht gefunden
+  Symbol: Klasse Button
+  Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[426,34] Symbol nicht gefunden
+  Symbol: Variable PAUSE_CIRCLE
+  Ort: Klasse com.vaadin.flow.component.icon.VaadinIcon
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/StatisticsCard.java:[26,35] Symbol nicht gefunden
+  Symbol: Variable UNDEFINED
+  Ort: Klasse com.vaadin.flow.theme.lumo.LumoUtility.Height
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/StatisticsCard.java:[82,13] Der final-Variablen icon kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[63,9] Der final-Variablen createUserButton kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[68,9] Der final-Variablen refreshButton kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[90,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getUsername()
+    Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[95,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getEmail()
+    Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[100,36] Symbol nicht gefunden
+  Symbol: Methode getFirstName()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[100,64] Symbol nicht gefunden
+  Symbol: Methode getLastName()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[105,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getRole()
+    Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[109,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getPhoneNumber()
+    Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[113,36] Symbol nicht gefunden
+  Symbol: Methode getIsActive()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[117,24] Ungültige Methode-Referenz
+  Symbol nicht gefunden
+    Symbol: Methode getCreatedAt()
+    Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[129,25] Symbol nicht gefunden
+  Symbol: Methode getIsActive()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[130,25] Symbol nicht gefunden
+  Symbol: Methode getIsActive()
+  Ort: Variable user von Typ com.maintenance.entity.User
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.242 s
+[INFO] Finished at: 2025-10-27T14:16:07+01:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project building-maintenance-system: Compilation failure: Compilation failure: 
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Ticket.java:[79,27] Variable actualCompletion ist bereits in Klasse com.maintenance.entity.Ticket definiert
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/repository/TicketStatusHistoryRepository.java:[38,5] Symbol nicht gefunden
+[ERROR]   Symbol: Klasse Optional
+[ERROR]   Ort: Schnittstelle com.maintenance.repository.TicketStatusHistoryRepository
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/repository/TicketStatusHistoryRepository.java:[41,31] Methode findByTicketOrderByCreatedAtDesc(com.maintenance.entity.Ticket) ist bereits in Schnittstelle com.maintenance.repository.TicketStatusHistoryRepository definiert
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Ticket.java:[141,28] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getName()
+[ERROR]   Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Building.java:[98,41] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Building.java:[98,98] Symbol nicht gefunden
+[ERROR]   Symbol: Variable COLOSED
+[ERROR]   Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[77,49] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getName()
+[ERROR]   Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[82,41] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/Room.java:[82,98] Symbol nicht gefunden
+[ERROR]   Symbol: Variable COLOSED
+[ERROR]   Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/TicketCategory.java:[67,41] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/entity/TicketCategory.java:[67,98] Symbol nicht gefunden
+[ERROR]   Symbol: Variable COLOSED
+[ERROR]   Ort: Klasse com.maintenance.entity.enums.TicketStatus
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[31,32] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getIsActive()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[27,44] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getRole()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[25,35] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getUsername()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/UserDetailsServiceImpl.java:[26,31] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getPassword()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtAuthenticationEntryPoint.java:[26,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtAuthenticationEntryPoint
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtAuthenticationFilter.java:[47,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtAuthenticationFilter
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[39,29] Symbol nicht gefunden
+[ERROR]   Symbol: Methode parserBuilder()
+[ERROR]   Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[49,29] Symbol nicht gefunden
+[ERROR]   Symbol: Methode parserBuilder()
+[ERROR]   Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[60,17] Symbol nicht gefunden
+[ERROR]   Symbol: Methode parserBuilder()
+[ERROR]   Ort: Klasse io.jsonwebtoken.Jwts
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[66,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[68,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[70,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[72,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/security/JwtTokenProvider.java:[74,13] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.security.JwtTokenProvider
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[31,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[31,53] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getName()
+[ERROR]   Ort: Variable building von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[38,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[43,41] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getName()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[44,44] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getAddress()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[45,41] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getCity()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[46,42] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getState()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[47,44] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getZipCode()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[48,44] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getManager()
+[ERROR]   Ort: Variable buildingDetails von Typ com.maintenance.entity.Building
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/service/impl/BuildingServiceImpl.java:[56,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.service.impl.BuildingServiceImpl
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[23,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[36,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[49,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[71,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[84,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[97,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/exception/GlobalExceptionHandler.java:[110,9] Symbol nicht gefunden
+[ERROR]   Symbol: Variable log
+[ERROR]   Ort: Klasse com.maintenance.exception.GlobalExceptionHandler
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[58,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[75,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[99,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[123,62] Inkompatible Typen: com.maintenance.ui.components.TicketChart.ChartType kann nicht in com.vaadin.flow.component.charts.model.ChartType konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/TicketChart.java:[149,48] Nicht vergleichbare Typen: com.vaadin.flow.component.charts.model.ChartType und com.maintenance.ui.components.TicketChart.ChartType
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[54,47] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getRole()
+[ERROR]   Ort: Variable currentUser von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[56,54] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getRole()
+[ERROR]   Ort: Variable currentUser von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[117,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[127,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[137,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[147,27] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[167,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[177,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[187,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[197,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[218,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[228,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[238,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[248,31] Inkompatible Typen: com.vaadin.flow.component.icon.VaadinIcon kann nicht in com.vaadin.flow.component.icon.Icon konvertiert werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[286,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getTitle()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[287,40] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[288,40] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getPriority()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[292,48] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[293,55] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getStatus()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[317,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getTitle()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[318,40] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getAssignee()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[319,23] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getAssignee()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[320,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getEstimatedCompletion()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[341,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getTitle()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[342,40] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getCategory()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[343,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getPriority()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[344,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getStatus()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[345,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getEstimatedCompletion()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[369,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getTitle()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[370,40] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getCategory()
+[ERROR]   Ort: Variable ticket von Typ com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[371,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getPriority()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[372,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getStatus()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[373,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getCreatedAt()
+[ERROR]     Ort: Klasse com.maintenance.entity.Ticket
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[397,9] Symbol nicht gefunden
+[ERROR]   Symbol: Klasse Button
+[ERROR]   Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[397,38] Symbol nicht gefunden
+[ERROR]   Symbol: Klasse Button
+[ERROR]   Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[401,42] Symbol nicht gefunden
+[ERROR]   Symbol: Variable ButtonVariant
+[ERROR]   Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[404,9] Symbol nicht gefunden
+[ERROR]   Symbol: Klasse Button
+[ERROR]   Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[404,33] Symbol nicht gefunden
+[ERROR]   Symbol: Klasse Button
+[ERROR]   Ort: Klasse com.maintenance.ui.views.dashboard.DashboardView
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/dashboard/DashboardView.java:[426,34] Symbol nicht gefunden
+[ERROR]   Symbol: Variable PAUSE_CIRCLE
+[ERROR]   Ort: Klasse com.vaadin.flow.component.icon.VaadinIcon
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/StatisticsCard.java:[26,35] Symbol nicht gefunden
+[ERROR]   Symbol: Variable UNDEFINED
+[ERROR]   Ort: Klasse com.vaadin.flow.theme.lumo.LumoUtility.Height
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/components/StatisticsCard.java:[82,13] Der final-Variablen icon kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[63,9] Der final-Variablen createUserButton kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[68,9] Der final-Variablen refreshButton kann kein Wert zugewiesen werden
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[90,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getUsername()
+[ERROR]     Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[95,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getEmail()
+[ERROR]     Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[100,36] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getFirstName()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[100,64] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getLastName()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[105,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getRole()
+[ERROR]     Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[109,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getPhoneNumber()
+[ERROR]     Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[113,36] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getIsActive()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[117,24] Ungültige Methode-Referenz
+[ERROR]   Symbol nicht gefunden
+[ERROR]     Symbol: Methode getCreatedAt()
+[ERROR]     Ort: Klasse com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[129,25] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getIsActive()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] /OKComputer_Dockerized Spring Boot Ticket System/src/main/java/com/maintenance/ui/views/admin/AdminView.java:[130,25] Symbol nicht gefunden
+[ERROR]   Symbol: Methode getIsActive()
+[ERROR]   Ort: Variable user von Typ com.maintenance.entity.User
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

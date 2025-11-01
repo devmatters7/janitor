@@ -1,0 +1,96 @@
+version: '3.8'
+
+# Development Docker Compose Configuration
+# This configuration is optimized for development with hot reload and debugging
+
+services:
+  # MySQL Database for development
+  mysql-dev:
+    image: mysql:8.0
+    container_name: maintenance-mysql-dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: devpassword
+      MYSQL_DATABASE: maintenance_system_dev
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: dev_password
+    ports:
+      - "3307:3306"  # Different port to avoid conflicts
+    volumes:
+      - mysql_dev_data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - maintenance-dev-network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Mail Server for development
+  mailhog-dev:
+    image: mailhog/mailhog:latest
+    container_name: maintenance-mailhog-dev
+    restart: unless-stopped
+    ports:
+      - "1026:1025"  # SMTP
+      - "8026:8025"  # Web UI
+    networks:
+      - maintenance-dev-network
+
+  # Application for development
+  app-dev:
+    image: maven:3.9-eclipse-temurin-17
+    container_name: maintenance-app-dev
+    restart: unless-stopped
+    working_dir: /app
+    depends_on:
+      - mysql-dev
+      - mailhog-dev
+    environment:
+      # Database Configuration
+      DB_HOST: mysql-dev
+      DB_PORT: 3306
+      DB_NAME: maintenance_system_dev
+      DB_USERNAME: dev_user
+      DB_PASSWORD: dev_password
+      
+      # Security Configuration
+      JWT_SECRET: devSecretKeyForBuildingMaintenanceSystem2024!
+      JWT_EXPIRATION: 86400000
+      
+      # Mail Configuration
+      MAIL_HOST: mailhog-dev
+      MAIL_PORT: 1025
+      
+      # Development Configuration
+      SERVER_PORT: 8080
+      CONTEXT_PATH: /
+      VAADIN_PRODUCTION_MODE: false
+      LOG_LEVEL: DEBUG
+      SPRING_PROFILES_ACTIVE: dev
+      
+      # File Storage
+      UPLOAD_DIR: /app/uploads
+      MAX_FILE_SIZE: 10485760
+      
+      # Development specific
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n
+    ports:
+      - "8081:8080"  # Application port
+      - "5005:5005"  # Debug port
+    volumes:
+      - .:/app
+      - maven_cache:/root/.m2
+      - dev_uploads:/app/uploads
+    networks:
+      - maintenance-dev-network
+    command: mvn spring-boot:run
+
+volumes:
+  mysql_dev_data:
+    driver: local
+  maven_cache:
+    driver: local
+  dev_uploads:
+    driver: local
+
+networks:
+  maintenance-dev-network:
+    driver: bridge

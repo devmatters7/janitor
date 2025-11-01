@@ -1,0 +1,251 @@
+# Building Maintenance System Configuration
+
+spring:
+  application:
+    name: building-maintenance-system
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:maintenance_system}?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      leak-detection-threshold: 60000
+
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_versioned_data: true
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+        javax:
+          cache:
+            provider: org.ehcache.jsr107.EhcacheCachingProvider
+
+  # Flyway Migration
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    out-of-order: false
+    clean-disabled: true
+
+  # Security Configuration
+  security:
+    jwt:
+      secret: ${JWT_SECRET:mySecretKeyForBuildingMaintenanceSystem2024!}
+      expiration: ${JWT_EXPIRATION:86400000} # 24 hours in milliseconds
+    
+  # Mail Configuration
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+  # File Upload Configuration
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:10MB}
+      max-request-size: ${MAX_REQUEST_SIZE:100MB}
+      file-size-threshold: 2KB
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${CONTEXT_PATH:/}
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+
+# Vaadin Configuration
+vaadin:
+  productionMode: ${VAADIN_PRODUCTION_MODE:false}
+  heartbeatInterval: 300
+  maxMessageSuspendTimeout: 5000
+  push:
+    enabled: true
+    transport: WEBSOCKET
+  servlet:
+    productionMode: ${VAADIN_PRODUCTION_MODE:false}
+
+# Logging Configuration
+logging:
+  level:
+    com.maintenance: ${LOG_LEVEL:INFO}
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.vaadin: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/building-maintenance-system.log
+    max-size: 10MB
+    max-history: 30
+    total-size-cap: 3GB
+
+# Management and Monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+      show-components: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+  health:
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+    db:
+      enabled: true
+
+# Cache Configuration
+spring:
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=30m
+
+# Application Specific Configuration
+app:
+  # File Storage Configuration
+  storage:
+    upload-dir: ${UPLOAD_DIR:./uploads}
+    max-file-size: ${MAX_FILE_SIZE:10485760} # 10MB in bytes
+    allowed-extensions: ${ALLOWED_EXTENSIONS:jpg,jpeg,png,gif,pdf,txt,doc,docx}
+  
+  # Notification Configuration
+  notification:
+    email:
+      from: ${EMAIL_FROM:noreply@maintenance.system}
+      enabled: ${EMAIL_ENABLED:true}
+    
+  # Ticket Configuration
+  ticket:
+    auto-close-days: ${AUTO_CLOSE_DAYS:7}
+    max-comments-per-ticket: ${MAX_COMMENTS:1000}
+    
+  # Security Configuration
+  security:
+    cors:
+      allowed-origins: ${CORS_ORIGINS:http://localhost:8080,http://localhost:3000}
+      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+    
+  # Pagination Configuration
+  pagination:
+    default-page-size: ${DEFAULT_PAGE_SIZE:20}
+    max-page-size: ${MAX_PAGE_SIZE:100}
+
+---
+# Development Profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  level:
+    com.maintenance: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+# Production Profile
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        use_sql_comments: false
+
+logging:
+  level:
+    com.maintenance: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+
+vaadin:
+  productionMode: true
+
+# Test Profile
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  
+  flyway:
+    enabled: false
+
+app:
+  storage:
+    upload-dir: ./test-uploads

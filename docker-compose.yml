@@ -1,0 +1,171 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: maintenance-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: maintenance_system
+      MYSQL_USER: maint_user
+      MYSQL_PASSWORD: maint_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf:/etc/mysql/conf.d
+    networks:
+      - maintenance-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Mail Server (MailHog for development)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: maintenance-mailhog
+    restart: unless-stopped
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    networks:
+      - maintenance-network
+
+  # Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maintenance-app
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      mailhog:
+        condition: service_started
+    environment:
+      # Database Configuration
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: maintenance_system
+      DB_USERNAME: maint_user
+      DB_PASSWORD: maint_password
+      
+      # Security Configuration
+      JWT_SECRET: mySecretKeyForBuildingMaintenanceSystem2024!
+      JWT_EXPIRATION: 86400000
+      
+      # Mail Configuration
+      MAIL_HOST: mailhog
+      MAIL_PORT: 1025
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      
+      # Application Configuration
+      SERVER_PORT: 8080
+      CONTEXT_PATH: /
+      VAADIN_PRODUCTION_MODE: true
+      LOG_LEVEL: INFO
+      
+      # File Storage
+      UPLOAD_DIR: /app/uploads
+      MAX_FILE_SIZE: 10485760  # 10MB
+      ALLOWED_EXTENSIONS: jpg,jpeg,png,gif,pdf,txt,doc,docx
+      
+      # System Configuration
+      AUTO_CLOSE_DAYS: 7
+      EMAIL_ENABLED: true
+      EMAIL_FROM: noreply@maintenance.system
+      DEFAULT_PAGE_SIZE: 20
+      MAX_PAGE_SIZE: 100
+    ports:
+      - "8080:8080"
+    volumes:
+      - app_uploads:/app/uploads
+      - app_logs:/app/logs
+    networks:
+      - maintenance-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Nginx Reverse Proxy (Optional - for production)
+  nginx:
+    image: nginx:alpine
+    container_name: maintenance-nginx
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/ssl:/etc/nginx/ssl
+      - nginx_logs:/var/log/nginx
+    networks:
+      - maintenance-network
+    profiles:
+      - production
+
+  # Monitoring with Prometheus (Optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: maintenance-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - maintenance-network
+    profiles:
+      - monitoring
+
+  # Grafana for Visualization (Optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: maintenance-grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin123
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - maintenance-network
+    profiles:
+      - monitoring
+
+volumes:
+  mysql_data:
+    driver: local
+  app_uploads:
+    driver: local
+  app_logs:
+    driver: local
+  nginx_logs:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  maintenance-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
